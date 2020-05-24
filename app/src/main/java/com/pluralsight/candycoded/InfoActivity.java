@@ -17,7 +17,7 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
 
         Uri uri = Uri.parse("android.resource://com.codeschool.candycoded/" + R.drawable.store_front);
-        ImageView candyStoreImageView = (ImageView)findViewById(R.id.image_view_candy_store);
+        ImageView candyStoreImageView = (ImageView) findViewById(R.id.image_view_candy_store);
         Picasso.with(this).
                 load(uri).
                 into(candyStoreImageView);
@@ -25,20 +25,22 @@ public class InfoActivity extends AppCompatActivity {
 
     }
 
-    // ***
+    // *** Task1
     public void createMapIntent(View view) {
         Uri uri = Uri.parse("geo:0,0?q=618 E South St Orlando, FL 32801");
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, uri);
         mapIntent.setPackage("com.google.android.apps.maps");
-        if(mapIntent.resolveActivity(getPackageManager()) != null) {
+        if (mapIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(mapIntent);
         }
     }
     // ***
 
-    // ***
+    // *** Task2
     public void createPhoneIntent(View view) {
-        startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:0123456789")));
+        Uri phoneUri = Uri.parse("tel:0123456789");
+        Intent phoneIntent = new Intent(Intent.ACTION_DIAL, phoneUri);
+        startActivity(phoneIntent);
     }
     // ***
 }
